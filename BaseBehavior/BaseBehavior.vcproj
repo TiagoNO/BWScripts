@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
-	Name="ExampleAIModule"
+	Version="9,00"
+	Name="BaseBehavior"
 	ProjectGUID="{2E63AE74-758A-4607-9DE4-D28E814A6E13}"
 	RootNamespace="ExampleAIModule"
 	Keyword="Win32Proj"
@@ -176,11 +176,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\Source\Dll.cpp"
+				RelativePath=".\Source\BaseBehavior.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\Source\ExampleAIModule.cpp"
+				RelativePath=".\Source\Dll.cpp"
 				>
 			</File>
 		</Filter>
@@ -190,7 +190,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\Source\ExampleAIModule.h"
+				RelativePath=".\Source\BaseBehavior.h"
 				>
 			</File>
 		</Filter>

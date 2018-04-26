@@ -6,7 +6,7 @@
 
 #include <BWAPI.h>
 
-#include "ExampleAIModule.h"
+#include "BaseBehavior.h"
 namespace BWAPI { Game* Broodwar; }
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason_for_call, 

@@ -1,4 +1,4 @@
-#include "ExampleAIModule.h"
+#include "BaseBehavior.h"
 #include <math.h>
 using namespace BWAPI;
 #define BASE_DIST 400
