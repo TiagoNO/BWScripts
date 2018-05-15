@@ -2,5 +2,7 @@
 /BaseBehavior/*.suo
 /Expand/*.sdf
 /Expand/*.suo
+/ManualCommands/*.sdf
+/ManualCommands/*.suo
 /Explore/*.sdf
 /PackAndAttack/*.sdf
