@@ -1,7 +1,8 @@
-//#include "BWAPI.h"
+#include "BWAPI.h"
 #include <map>
 
 using namespace std;
+using namespace BWAPI;
  
 #define is_iddle 0
 #define is_constructing 1
@@ -19,7 +20,7 @@ public:
     WorkerList();
 
     /*get the closest*/
-    Unit* getAvaiableWorker();
+	Unit* getAvaiableWorker();
 
     /*add an worker in the list*/
     void addWorker(int workerId);

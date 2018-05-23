@@ -1,5 +1,6 @@
 #include "WorkerList.h"
 
+
 WorkerList::WorkerList(){
     
 }
@@ -19,10 +20,10 @@ Unit * WorkerList::getAvaiableWorker(){
 
 int WorkerList::defineWorkerState(int workerId){
     Unit * worker = Broodwar->getUnit(workerId);
-    if(worker->isIddle()){
+    if(worker->isIdle()){
         return is_iddle;
     }
-    else if(worker->isCarryingMineral() || worker->isCarryingGas()){
+    else if(worker->isCarryingMinerals() || worker->isCarryingGas()){
         return is_mining;
     }
     else{
