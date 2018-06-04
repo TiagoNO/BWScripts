@@ -4,12 +4,14 @@
 using namespace BWAPI;
 
 class UnitItem {
-	public:
+	private:
 		UnitType unitType;
-		Position unitPosition;
+		TilePosition unitTilePosition;
 		
-		
-		UnitItem(UnitType unitType, Position position);
+	public:	
+		UnitItem(UnitType unitType, TilePosition tilePosition);
 		bool operator==(const UnitItem& a);
 		void operator=(const UnitItem& a);
+		UnitType getUnitType();
+		TilePosition getUnitTilePosition();
 };

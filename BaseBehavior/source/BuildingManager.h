@@ -9,11 +9,13 @@ class BuildingManager {
 	public:
 		BuildingManager();
 
-		void addBuildingList(UnitType buildingType, Position buildingPosition,bool priority);
-		void addBuildingList(UnitType buildingType, Position buildingPosition);
+		void addBuildingList(UnitType buildingType, TilePosition buildingTilePosition,bool priority);
+		void addBuildingList(UnitType buildingType, TilePosition buildingTilePosition);
 
 		void cancelBuilding(UnitType buildingType);
 
 		bool isInBuildingList(UnitType buildingType);
 		bool isBeeingBuilt(UnitType buildingType);
+
+		bool buildFirstInList(Unit *worker);
 };

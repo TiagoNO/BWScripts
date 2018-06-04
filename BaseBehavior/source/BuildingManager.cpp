@@ -5,8 +5,8 @@ BuildingManager::BuildingManager() {
 
 }
 
-void BuildingManager::addBuildingList(UnitType buildingType, Position buildingPosition,bool priority) {
-	UnitItem *unitItem = new UnitItem(buildingType, buildingPosition);
+void BuildingManager::addBuildingList(UnitType buildingType, TilePosition buildingTilePosition,bool priority) {
+	UnitItem *unitItem = new UnitItem(buildingType, buildingTilePosition);
 	if (priority) {
 		this->buildingList.push_front(unitItem);
 	}
@@ -16,15 +16,15 @@ void BuildingManager::addBuildingList(UnitType buildingType, Position buildingPo
 	this->onGoingBuildingList[buildingType] = false;
 }
 
-void BuildingManager::addBuildingList(UnitType buildingType, Position buildingPosition) {
-	UnitItem *unitItem = new UnitItem(buildingType, buildingPosition);
+void BuildingManager::addBuildingList(UnitType buildingType, TilePosition buildingTilePosition) {
+	UnitItem *unitItem = new UnitItem(buildingType, buildingTilePosition);
 	this->buildingList.push_back(unitItem);
 	this->onGoingBuildingList[buildingType] = false;
 }
 
 void BuildingManager::cancelBuilding(UnitType buildingType) {
 	for (std::list<UnitItem *>::const_iterator i = this->buildingList.begin(); i != this->buildingList.end(); i++) {
-		if ((*i)->unitType == buildingType) {
+		if ((*i)->getUnitType() == buildingType) {
 			this->buildingList.remove((*i));
 		}
 	}
@@ -32,7 +32,7 @@ void BuildingManager::cancelBuilding(UnitType buildingType) {
 
 bool BuildingManager::isInBuildingList(UnitType buildingType) {
 	for (std::list<UnitItem *>::const_iterator i = this->buildingList.begin(); i != this->buildingList.end(); i++) {
-		if ((*i)->unitType == buildingType) {
+		if ((*i)->getUnitType()== buildingType) {
 			return true;
 		}
 	}
@@ -44,4 +44,17 @@ bool BuildingManager::isBeeingBuilt(UnitType buildingType) {
 		return true;
 	}
 	return false;
+}
+
+bool BuildingManager::buildFirstInList(Unit *worker){
+	if(Broodwar->canBuildHere(worker,this->buildingList.front()->getUnitTilePosition(),this->buildingList.front()->getUnitType(),false)){
+		worker->build(this->buildingList.front()->getUnitTilePosition,this->buildingList.front()->getUnitType());
+		this->onGoingBuildingList[this->buildingList.front()->getUnitType()] = true;
+		this->buildingList.pop_front();
+	}
+	else{
+		// could not build there, for some reason
+		Broodwar->sendText("Could not build!");
+		this->buildingList.pop_front();
+	}
 }

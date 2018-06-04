@@ -1,15 +1,22 @@
 #include "UnitItem.h"
 
-UnitItem::UnitItem(UnitType unitType, Position position) {
+UnitItem::UnitItem(UnitType unitType, TilePosition tilePosition) {
 	this->unitType = unitType;
-	this->unitPosition = position;
+	this->unitTilePosition = tilePosition;
 }
 
 bool UnitItem::operator==(const UnitItem& a) {
-	return this->unitType == a.unitType && this->unitPosition == a.unitPosition;
+	return this->unitType == a.unitType && this->unitTilePosition == a.unitTilePosition;
 }
 
 void UnitItem::operator=(const UnitItem& a) {
 	this->unitType = a.unitType;
-	this->unitPosition = a.unitPosition;
+	this->unitTilePosition = a.unitTilePosition;
+}
+
+UnitType UnitItem::getUnitType(){
+	return this->unitType;
+}
+TilePosition UnitItem::getUnitTilePosition(){
+	return this->unitTilePosition;
 }
