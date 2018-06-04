@@ -17,5 +17,6 @@ class Base{
         Base();        
         Base(Position basePosition);
 
+		void update(int mineralBudget, int gasBudget);
         
 }
