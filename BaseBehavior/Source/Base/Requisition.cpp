@@ -4,6 +4,8 @@
 
 #define max_distance 400
 
+using namespace BWAPI;
+
 Requisition::Requisition() {
 	if (Broodwar->self()->getRace() == Races::Protoss) {
 		this->buildOrder = new ProtossBuildOrder();
@@ -24,9 +26,9 @@ Requisition* Requisition::getInstance() {
 }
 
 set<UnitType> Requisition::getRequisitions(Position basePosition) {
-	set<UnitTypes> requisitions;
-	this->buildOrder->checkMilitaryRequisitions(requisitions);
-	this->buildOrder->checkResourceRequisitions(requisitions);
-	this->buildOrder->checkSpecialRequisitions(requisitions);
+	set<UnitType> requisitions;
+	this->buildOrder->checkMilitaryRequisitions(&requisitions);
+	this->buildOrder->checkResourceRequisitions(&requisitions);
+	this->buildOrder->checkSpecialRequisitions(&requisitions);
 	return requisitions;
 }
